@@ -1,0 +1,211 @@
+/*
+Theme Name : ポートフォリオテーマ
+Theme URL :	テーマのURL
+Description :	テーマの説明
+Version :	テーマのバージョン
+*/
+
+/*====================
+PCを基本設計にする
+ - 1280px〜：大型PC
+ - 960px〜1279px：小型PC
+ - 600px〜959px：タブレット
+ - 480px〜599px：スマートフォン横
+ - 〜479px：スマートフォン縦
+====================*/
+
+/* 1280px〜：大型PC
+------------------------------ */
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/*-------------------------------
+ヘッダー
+-------------------------------*/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(99, 166, 219);
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+}
+
+header h1 {
+    margin: 5px;
+}
+
+.global_navi {
+    width: 40vw;
+}
+
+.global_navi ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    width: minmax(600px, 750px);
+}
+
+.global_navi a {
+    text-decoration: none;
+}
+
+/* チェックボックスは非表示に */
+
+.drawer-hidden {
+    display: none;
+}
+
+/*-------------------------------
+メイン
+-------------------------------*/
+
+main {
+    margin-top: 60px;
+}
+
+main section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+
+/*-------------------------------
+プロフィール
+-------------------------------*/
+
+.section_profile {
+    background-color: rgb(255, 255, 255)
+}
+
+.div_widget-box {
+    display: flex;
+    justify-content: center;
+    width: 90vw;
+}
+
+.profile_item_area {
+    margin: 10px;
+}
+
+/*-------------------------------
+ブログ
+-------------------------------*/
+
+.section_blog {
+    background-color: rgb(212, 236, 234);
+}
+
+/*-------------------------------
+フッター
+-------------------------------*/
+
+footer {
+    background-color: rgb(167, 210, 143);
+}
+
+/*------------------------------
+
+  ここから下がハンバーガーメニュー
+  に関するCSS
+
+------------------------------*/
+
+/* ハンバーガーアイコンの設置スペース */
+
+.drawer-open {}
+
+/* 960px〜1279px：小型PC
+------------------------------ */
+
+@media screen and (min-width:960px) and (max-width:1279px) {}
+
+/* 600px〜959px：タブレット
+------------------------------ */
+
+@media screen and (min-width:600px) and (max-width:959px) {}
+
+/* 480px〜599px：SP横
+------------------------------ */
+
+@media screen and (min-width:480px) and (max-width:599px) {}
+
+/* 〜479px：スマートフォン縦
+------------------------------ */
+
+@media screen and (max-width:479px) {
+    /* ハンバーガーアイコンの設置スペース */
+    .drawer-open {
+        display: flex;
+        height: 60px;
+        width: 60px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 100;
+        /* 重なり順を一番上に */
+        cursor: pointer;
+    }
+    /* ハンバーガーメニューのアイコン */
+    .drawer-open span, .drawer-open span:before, .drawer-open span:after {
+        content: '';
+        display: block;
+        height: 3px;
+        width: 25px;
+        border-radius: 3px;
+        background: #333;
+        transition: 0.5s;
+        position: absolute;
+    }
+    /* 三本線のうち一番上の棒の位置調整 */
+    .drawer-open span:before {
+        bottom: 8px;
+    }
+    /* 三本線のうち一番下の棒の位置調整 */
+    .drawer-open span:after {
+        top: 8px;
+    }
+    /* アイコンがクリックされたら真ん中の線を透明にする */
+    #drawer-check:checked~.drawer-open span {
+        background: rgba(255, 255, 255, 0);
+    }
+    /* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+    #drawer-check:checked~.drawer-open span::before {
+        bottom: 0;
+        transform: rotate(45deg);
+    }
+    #drawer-check:checked~.drawer-open span::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+    /* メニューのデザイン*/
+    .global_navi {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 100%;
+        /* メニューを画面の外に飛ばす */
+        z-index: 99;
+        background: #fff;
+        transition: .5s;
+    }
+    .global_navi ul {
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+    }
+    /* アイコンがクリックされたらメニューを表示 */
+    #drawer-check:checked~.global_navi {
+        left: 0;
+        /* メニューを画面に入れる */
+    }
+}
