@@ -1,5 +1,5 @@
 /*
-Theme Name : ポートフォリオテーマ
+Theme Name : portfolio_theme
 Theme URL :	テーマのURL
 Description :	テーマの説明
 Version :	テーマのバージョン
@@ -21,6 +21,8 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    font-family: Avenir, 'Helvetica neue', Helvetica, 'Segoe UI', '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+    background-color: #f4f5f7;
 }
 
 /*-------------------------------
@@ -36,6 +38,7 @@ header {
     position: fixed;
     right: 0px;
     top: 0px;
+    z-index: 9999;
 }
 
 header h1 {
@@ -82,9 +85,7 @@ main section {
 プロフィール
 -------------------------------*/
 
-.section_profile {
-    background-color: rgb(255, 255, 255)
-}
+.section_profile {}
 
 .div_widget-box {
     display: flex;
@@ -100,8 +101,39 @@ main section {
 ブログ
 -------------------------------*/
 
-.section_blog {
-    background-color: rgb(212, 236, 234);
+.section_blog {}
+
+.blog_area {
+    display: flex;
+    flex-direction: column;
+}
+
+.blog_item {
+    display: flex;
+    justify-content: left;
+    width: 50vw;
+    background-color: #FFF;
+    transition: .3s;
+}
+
+.blog_item:hover {
+    box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
+	transform: translateY(-2px);
+}
+
+.blog_img_area {
+    position: relative;
+}
+
+.blog_category {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #3399cc;
+    font-size: 11px;
+    color: #fff;
+    padding: 1px 5px;
+    max-width: 80%;
 }
 
 /*-------------------------------
@@ -120,8 +152,6 @@ footer {
 ------------------------------*/
 
 /* ハンバーガーアイコンの設置スペース */
-
-.drawer-open {}
 
 /* 960px〜1279px：小型PC
 ------------------------------ */
